@@ -1,31 +1,27 @@
-<!DOCTYPE HTML>
-<html lang="ru">
-  <head>
-    <meta charset="UTF-8">
-    <title>Курсы валют</title>
-    <meta name="description" content="Сольный проект - Курсы валют" />
-    
-    <link rel="stylesheet" type="text/css" href="./style.css" />
-    <script type="text/javascript" src="./index.js"></script>
-  </head>
-  <body>
-    <header>
-      Шапка
-      <nav>
-        Навигация
-      </nav>
-    </header>
-    <main>
-      <section>
-        <h1>Заголовок страницы</h1>
-        Основная часть
-      </section>
-    </main>
-    <aside>
-      Боковая колонка (сайдбар)
-    </aside>
-    <footer>
-      Подвал
-    </footer>
-  </body>
-</html>
+//Получеие кнопок
+// I Have section
+
+
+
+let valuteButtons = document.querySelectorAll('.buttonv');
+valuteButtons.forEach((el) => { 
+  el.addEventListener('click', (e) => {
+    console.log(e.target.textContent);
+    el.style.backgroundColor = '#833AE0'
+    el.style.color = 'white'
+  })
+})  
+
+let selectValuteButton = document.querySelectorAll('.select');
+selectValuteButton.forEach((el) => {
+  el.addEventListener('change', (e) => {
+    console.log(e.target.value);
+  })
+})  
+
+async function getFetch(){
+  let respose =  await fetch(`https://api.ratesapi.io/api/latest?base=${from}&symbols=${to}`);
+  let data = await respose.json();
+  console.log(data);
+}
+

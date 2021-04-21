@@ -108,7 +108,7 @@ font-weight: 700;
 
 .valutenavigete {
     display: flex;
-    width: 250px;
+    width: 248px;
 }
 
 .valutbutton {
@@ -143,6 +143,11 @@ font-weight: 700;
     -webkit-border-bottom-right-radius: 4px; 
     -webkit-border-top-right-radius: 4px; 
     height: 30px;
+}
+
+option {
+    background-color: white;
+    color: black;
 }
 
 .ihavep {
@@ -197,3 +202,10 @@ font-weight: 700;
     left: 550px
 }
 
+button:focus {
+    outline: none;
+}
+
+input:focus {
+    outline: none;
+}
