@@ -81,6 +81,14 @@ font-weight: 700;
     height: 96px;
     border: 0.1px solid#C6C6C6;
     border-radius: 3px;
+    box-sizing: border-box;
+}
+
+
+.inputihave[type="text"] {
+    font-size: 36px;
+    font-weight: 700;
+    padding: 0px 0px 30px 12px;
 }
 
 .konverter {
@@ -100,7 +108,7 @@ font-weight: 700;
 
 .valutenavigete {
     display: flex;
-    width: 259px;
+    width: 250px;
 }
 
 .valutbutton {
@@ -150,13 +158,9 @@ font-weight: 700;
 .inputp {
     color: #C6C6C6;
     font-size: 12px;
+
 }
 
-.inputihave[type="text"] {
-    font-size: 36px;
-    font-weight: 700;
-    padding: 0px 0px 0px 20px;
-}
 
 
 #inputp1 {
