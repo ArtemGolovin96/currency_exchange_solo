@@ -32,6 +32,11 @@ body {
     font-size: 11px;
 }
 
+.navp:hover {
+font-weight: 700;
+}
+
+
 .vhod {
     width: 4.7%;
     font-size: 11px;
@@ -43,12 +48,148 @@ body {
 
 }
 
+.vhod:hover {
+    background-color: #833AE0;  ;
+    color: white;
+}
+
 .voiti {
     margin: 0px;
     font-weight: 600;
 }
 
 .h1 {
-    margin: 50px 0px 0px 254px;
+    margin: 50px 0px 30px 244px;
     font-size: 36px;
 }
+
+.ihave {
+    display: flex;
+    flex-direction: column;
+    width: 259px;
+}
+
+.iwant {
+    display: flex;
+    flex-direction: column;
+    width: 259px;
+    margin: 0px 0px 0px -250px;
+}
+
+.inputihave {
+    width: 249px;
+    height: 96px;
+    border: 0.1px solid#C6C6C6;
+    border-radius: 3px;
+}
+
+.konverter {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.calc {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 640px;
+    align-items: center;
+    margin: 0px 0px 0px 245px;
+}
+
+.valutenavigete {
+    display: flex;
+    width: 259px;
+}
+
+.valutbutton {
+    margin: 5px -2px 20px -2px;
+    border: 0.1px solid#C6C6C6;
+    background-color: white;
+    height: 30px;
+    color: #C6C6C6;
+    width: 54.5px;
+}
+
+.valutbutton:hover {
+    background-color: #833AE0;
+    color: white;
+    border: none;
+}
+
+#valutbutton11 {
+    -moz-border-radius-bottomleft: 4px; 
+    -webkit-border-top-left-radius: 4px; 
+    border-bottom-left-radius: 4px;
+    
+}
+
+#valutbutton12 {
+    -moz-border-radius-bottomleft: 4px; 
+    -webkit-border-top-left-radius: 4px; 
+    border-bottom-left-radius: 4px; 
+}
+
+.select {
+    -webkit-border-bottom-right-radius: 4px; 
+    -webkit-border-top-right-radius: 4px; 
+    height: 30px;
+}
+
+.ihavep {
+    color: #9F9F9F;
+    font-size: 12px;
+    margin: 0;
+}
+
+.buttonschange {
+    margin: 0px 45px;
+}
+
+.inputp {
+    color: #C6C6C6;
+    font-size: 12px;
+}
+
+.inputihave[type="text"] {
+    font-size: 36px;
+    font-weight: 700;
+    padding: 0px 0px 0px 20px;
+}
+
+
+#inputp1 {
+    position: absolute;
+    top: 315px;
+    left: 271px;
+}
+
+#inputp2 {
+    position: absolute;
+    top: 315px;
+    left: 647px;
+}
+
+.changebutton {
+    border: none;
+    background-color: white;
+    font-size: 40px;
+    height: 20px;
+    margin: 0px 0px 0px 0px;
+}
+
+#leftchangebutton {
+    position: absolute;
+    top: 285px;
+    left: 550px;
+    
+    
+}
+
+#rigthchangebutton {
+    position: absolute;
+    top: 265px;
+    left: 550px
+}
+

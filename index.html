@@ -24,14 +24,16 @@
         </div>
         <section class="konverter">
             <h1 class="h1">Конвертер валют онлайн</h1>
+            <section class="calc">
             <section class="ihave">
                 <p class="ihavep">У меня есть</p>
                 <div class="valuta">
-                    <button class="valutbutton">RUB</button>
+                    <div class="valutenavigete">
+                    <button class="valutbutton" id="valutbutton11">RUB</button>
                     <button class="valutbutton">USD</button>
                     <button class="valutbutton">EUR</button>
                     <button class="valutbutton">GBP</button>
-                    <select class="valutbutton">
+                    <select class="valutbutton select">
                         <option class="option">BYR</option>
                         <option class="option">CHF</option>
                         <option class="option">NOK</option>
@@ -63,21 +65,23 @@
                         <option class="option">ZAR</option>
                         <option class="option">JPY</option>
                     </select>
-                    <input class="inputihave" placeholder="1 RUB = 0.0135 USD">
                 </div>
+                    <input class="inputihave" type="text">
+                    <p class="inputp" id="inputp1">1 RUB = 0.0135 USD</p>
             </section>
             <section class="buttonschange">
-                <button class="leftchangebutton">←</button>
-                <button class="rigthchangebutton">→</button>
+                <button id="leftchangebutton" class="changebutton">←</button>
+                <button id="rigthchangebutton" class="changebutton">→</button>
             </section>
             <section class="iwant">
                 <p class="ihavep">Хочу приобрести</p>
                 <div class="valuta">
-                    <button class="valutbutton">RUB</button>
+                    <div class="valutenavigete">
+                    <button class="valutbutton" id="valutbutton12">RUB</button>
                     <button class="valutbutton">USD</button>
                     <button class="valutbutton">EUR</button>
                     <button class="valutbutton">GBP</button>
-                    <select class="valutbutton">
+                    <select class="valutbutton select">
                         <option class="option">BYR</option>
                         <option class="option">CHF</option>
                         <option class="option">NOK</option>
@@ -109,9 +113,12 @@
                         <option class="option">ZAR</option>
                         <option class="option">JPY</option>
                     </select>
-                    <input class="inputihave" placeholder="1 RUB = 0.0135 USD">
+                    </div>
+                    <input class="inputihave" type="text">
+                    <p class="inputp" id="inputp2">1 USD = 73.8896 RUB</p>
                 </div>
             </section>
         </section>
+    </section>
       </body>
 </html>
