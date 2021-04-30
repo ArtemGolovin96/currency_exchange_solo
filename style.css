@@ -91,6 +91,21 @@ font-weight: 700;
     padding: 0px 0px 30px 12px;
 }
 
+.inputiwant {
+    width: 249px;
+    height: 96px;
+    border: 0.1px solid#C6C6C6;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+
+.inputiwant[type="text"] {
+    font-size: 36px;
+    font-weight: 700;
+    padding: 0px 0px 30px 12px;
+}
+
 .konverter {
     display: flex;
     flex-direction: column;
@@ -120,6 +135,8 @@ font-weight: 700;
     width: 54.5px;
 }
 
+
+
 .valutbutton:hover {
     background-color: #833AE0;
     color: white;
@@ -145,9 +162,20 @@ font-weight: 700;
     height: 30px;
 }
 
+.select2 {
+    -webkit-border-bottom-right-radius: 4px; 
+    -webkit-border-top-right-radius: 4px; 
+    height: 30px;
+}
+
 option {
     background-color: white;
     color: black;
+}
+
+.optionactive {
+    background-color: #833AE0;;
+    color: white;
 }
 
 .ihavep {
@@ -208,4 +236,16 @@ button:focus {
 
 input:focus {
     outline: none;
+}
+
+
+.buttonfocus {
+    background-color: #833AE0;
+    color: white;
+}
+
+
+.buttonfocus2 {
+    background-color: #833AE0;
+    color: white;
 }
