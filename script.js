@@ -17,9 +17,31 @@ function checkFromTo() {
   })
 }
 
+function checkFromToSelect() {
+  selectValuteButton = document.querySelectorAll('.select');
+  selectValuteButton.forEach((el) => { 
+    if(el.textContent === from) {
+      el.classList.add('buttonfocus');
+    } else if (el.textContent !== from) {
+      el.classList.remove('buttonfocus')
+    }
+  })
+}
+
 function checkToFrom() {
   let valuteButtons2 = document.querySelectorAll('.buttonv2');
   valuteButtons2.forEach((el) => { 
+    if(el.textContent === to) {
+      el.classList.add('buttonfocus');
+    } else if (el.textContent !== to) {
+      el.classList.remove('buttonfocus')
+    }
+  })
+}
+
+function checkToFromSelect2() {
+  let selectValuteButton2 = document.querySelectorAll('.select2');
+  selectValuteButton2.forEach((el) => { 
     if(el.textContent === to) {
       el.classList.add('buttonfocus');
     } else if (el.textContent !== to) {
@@ -77,7 +99,9 @@ function addEventButtonsR () {
 function addEventSelectL () {
   let selectValuteButton = document.querySelectorAll('.select');
   selectValuteButton.forEach((el) => {
+    checkFromToSelect()
   el.addEventListener('change', (e) => {
+    checkFromTo();
     from = e.target.options[e.target.selectedIndex].textContent;
     getFetch();
     el.classList.toggle('optionactive');
@@ -93,7 +117,9 @@ function addEventSelectL () {
 function addEventSelectR () {
   let selectValuteButton2 = document.querySelectorAll('.select2');
   selectValuteButton2.forEach((el) => {
+    checkFromToSelect2()
     el.addEventListener('change', (e) => {
+      checkToFrom();
       to = e.target.options[e.target.selectedIndex].textContent;
       getFetch();
       el.classList.toggle ('optionactive');
@@ -129,7 +155,7 @@ function inputValue() {
             console.log(err)
           })
 
-        }, 2000)
+        }, 1000)
       }
     })
     inputR.addEventListener('input', (e) => {
@@ -150,7 +176,7 @@ function inputValue() {
             console.log(err)
           })
 
-        }, 2000)
+        }, 1000)
       }
     })
   }
@@ -160,6 +186,9 @@ function addEventListenerChange () {
   changeButton.addEventListener('click', (e) => {
     console.log('check');
     [from, to] = [to, from];
+    let inputL = document.querySelector('.inputihave');
+    let inputR = document.querySelector('.inputiwant');
+    [inputL.value, inputR.value] = [inputR.value, inputL.value]
     checkFromTo();
     checkToFrom();
     getFetch();
