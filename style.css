@@ -118,6 +118,15 @@ font-weight: 700;
     justify-content: space-between;
     width: 640px;
     align-items: center;
+    margin: 0px 245px 0px 245px;
+}
+
+.calcchange {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    width: 640px;
+    align-items: center;
     margin: 0px 0px 0px 245px;
 }
 
@@ -184,9 +193,7 @@ option {
     margin: 0;
 }
 
-.buttonschange {
-    margin: 0px 45px;
-}
+
 
 .inputp {
     color: #C6C6C6;
@@ -216,19 +223,6 @@ option {
     margin: 0px 0px 0px 0px;
 }
 
-#leftchangebutton {
-    position: absolute;
-    top: 285px;
-    left: 550px;
-    
-    
-}
-
-#rigthchangebutton {
-    position: absolute;
-    top: 265px;
-    left: 550px
-}
 
 button:focus {
     outline: none;
@@ -248,4 +242,10 @@ input:focus {
 .buttonfocus2 {
     background-color: #833AE0;
     color: white;
+}
+
+.buttonschange {
+    position: absolute;
+    left: 550px;
+    top: 260px;
 }

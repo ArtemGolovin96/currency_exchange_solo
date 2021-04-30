@@ -5,9 +5,34 @@ let to = 'USD';
 let data1 = 0;
 let data = 0; 
 let timeOutId;
+
+function checkFromTo() {
+  let valuteButtons = document.querySelectorAll('.buttonv');
+  valuteButtons.forEach((el) => { 
+    if(el.textContent === from) {
+      el.classList.add('buttonfocus');
+    } else if (el.textContent !== from) {
+      el.classList.remove('buttonfocus')
+    }
+  })
+}
+
+function checkToFrom() {
+  let valuteButtons2 = document.querySelectorAll('.buttonv2');
+  valuteButtons2.forEach((el) => { 
+    if(el.textContent === to) {
+      el.classList.add('buttonfocus');
+    } else if (el.textContent !== to) {
+      el.classList.remove('buttonfocus')
+    }
+  })
+}
+
+
 function addEventButtonsL () {
   let valuteButtons = document.querySelectorAll('.buttonv');
   valuteButtons.forEach((el) => { 
+    checkFromTo()
     el.addEventListener('click', (e) => { 
       from = el.textContent;
       getFetch();
@@ -30,12 +55,14 @@ function addEventButtonsL () {
 function addEventButtonsR () {
   let valuteButtons2 = document.querySelectorAll('.buttonv2');
   valuteButtons2.forEach((el) => { 
+    checkToFrom();
   el.addEventListener('click', (e) => { 
     to = el.textContent;
     getFetch();
     let selectValuteButton2 = document.querySelector('.select2');
     selectValuteButton2.classList.remove('optionactive');
       valuteButtons2.forEach((item) => {
+        item.classList.remove('buttonfocus')
         if(item.classList.contains('buttonfocus2')) {
           item.classList.remove('buttonfocus2');
         }
@@ -82,28 +109,69 @@ function addEventSelectR () {
 function inputValue() {
     let inputL = document.querySelector('.inputihave');
     let inputR = document.querySelector('.inputiwant');
-    inputL.value = '';
-    inputR.value = '';
+
+    
     inputL.addEventListener('input', (e) => {
+      console.log(to)
       if(from === to){ 
         inputR.value = inputL.value
       }  else {
         clearTimeout(timeOutId);
         timeOutId = setTimeout(() => {
-          inputR.value = (inputL.value * data.rates[to]).toFixed(4);
+          fetch(`https://api.ratesapi.io/api/latest?base=${from}&symbols=${to}`)
+          .then((res) => {
+            return res.json();
+          })
+          .then((data) => {
+            inputR.value = (inputL.value * data.rates[to]).toFixed(4);
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+
+        }, 2000)
+      }
+    })
+    inputR.addEventListener('input', (e) => {
+      console.log(to)
+      if(from === to){ 
+        inputR.value = inputL.value
+      }  else {
+        clearTimeout(timeOutId);
+        timeOutId = setTimeout(() => {
+          fetch(`https://api.ratesapi.io/api/latest?base=${to}&symbols=${from}`)
+          .then((res) => {
+            return res.json();
+          })
+          .then((data) => {
+            inputL.value = (inputR.value * data.rates[from]).toFixed(4);
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+
         }, 2000)
       }
     })
   }
 
-
-
-inputValue();
+function addEventListenerChange () {
+  let changeButton = document.querySelector('.changebutton');
+  changeButton.addEventListener('click', (e) => {
+    console.log('check');
+    [from, to] = [to, from];
+    checkFromTo();
+    checkToFrom();
+    getFetch();
+    inputValue();
+  })
+}
+addEventListenerChange();
 addEventButtonsL();
 addEventSelectL();
 addEventButtonsR();
 addEventSelectR();
-
+inputValue();
 
 
 async function getFetch(){
