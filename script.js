@@ -17,6 +17,17 @@ function checkFromTo() {
   })
 }
 
+function checkToFrom() {
+  let valuteButtons2 = document.querySelectorAll('.buttonv2');
+  valuteButtons2.forEach((el) => { 
+    if(el.textContent === to) {
+      el.classList.add('buttonfocus');
+    } else if (el.textContent !== to) {
+      el.classList.remove('buttonfocus')
+    }
+  })
+}
+
 function checkFromToSelect() {
   selectValuteButton = document.querySelectorAll('.select');
   selectValuteButton.forEach((el) => { 
@@ -28,16 +39,6 @@ function checkFromToSelect() {
   })
 }
 
-function checkToFrom() {
-  let valuteButtons2 = document.querySelectorAll('.buttonv2');
-  valuteButtons2.forEach((el) => { 
-    if(el.textContent === to) {
-      el.classList.add('buttonfocus');
-    } else if (el.textContent !== to) {
-      el.classList.remove('buttonfocus')
-    }
-  })
-}
 
 function checkToFromSelect2() {
   let selectValuteButton2 = document.querySelectorAll('.select2');
@@ -89,7 +90,7 @@ function addEventButtonsR () {
           item.classList.remove('buttonfocus2');
         }
       })
-      e.target.classList.toggle('buttonfocus2');
+      e.target.classList.add('buttonfocus2');
       inputValue();
   })
 })  
@@ -104,10 +105,11 @@ function addEventSelectL () {
     checkFromTo();
     from = e.target.options[e.target.selectedIndex].textContent;
     getFetch();
-    el.classList.toggle('optionactive');
+    el.classList.add('optionactive');
     let valuteButtons = document.querySelectorAll('.buttonv');
     valuteButtons.forEach((item) => {
       item.classList.remove('buttonfocus');
+      item.classList.remove('buttonfocus2');
     })
     inputValue();
   })
@@ -117,15 +119,16 @@ function addEventSelectL () {
 function addEventSelectR () {
   let selectValuteButton2 = document.querySelectorAll('.select2');
   selectValuteButton2.forEach((el) => {
-    checkFromToSelect2()
+      checkToFromSelect2()
     el.addEventListener('change', (e) => {
       checkToFrom();
       to = e.target.options[e.target.selectedIndex].textContent;
       getFetch();
-      el.classList.toggle ('optionactive');
+      el.classList.add('optionactive');
       let valuteButtons2 = document.querySelectorAll('.buttonv2');
-      valuteButtons2.forEach((item) => {
-        item.classList.remove('buttonfocus2');
+      valuteButtons2.forEach((i) => {
+        i.classList.remove('buttonfocus');
+        i.classList.remove('buttonfocus2');
       })
       inputValue();
     })
@@ -135,10 +138,7 @@ function addEventSelectR () {
 function inputValue() {
     let inputL = document.querySelector('.inputihave');
     let inputR = document.querySelector('.inputiwant');
-
-    
     inputL.addEventListener('input', (e) => {
-      console.log(to)
       if(from === to){ 
         inputR.value = inputL.value
       }  else {
@@ -183,12 +183,17 @@ function inputValue() {
 
 function addEventListenerChange () {
   let changeButton = document.querySelector('.changebutton');
+  let selectValuteButton2 = document.querySelectorAll('.select2');
+  let selectValuteButton = document.querySelectorAll('.select');
   changeButton.addEventListener('click', (e) => {
-    console.log('check');
     [from, to] = [to, from];
     let inputL = document.querySelector('.inputihave');
     let inputR = document.querySelector('.inputiwant');
-    [inputL.value, inputR.value] = [inputR.value, inputL.value]
+    [inputL.value, inputR.value] = [inputR.value, inputL.value];
+    [selectValuteButton[0].value, selectValuteButton2[0].value] = [selectValuteButton2[0].value, selectValuteButton[0].value]
+    // [from, selectValuteButton2[0].value] = [selectValuteButton2[0].value, from]
+    // [selectValuteButton[0].value, to] = [to, selectValuteButton[0].value]
+    console.dir(selectValuteButton[0].value)
     checkFromTo();
     checkToFrom();
     getFetch();
@@ -214,6 +219,10 @@ async function getFetch(){
       pL.textContent = `1 ${data.base} =  ${data.rates[to]} ${to}`;
       let pR = document.querySelector('#inputp2');
       pR.textContent = `1 ${to} =  ${data1.rates[from]} ${from}`;
+      let inputL = document.querySelector('.inputihave');
+      let inputR = document.querySelector('.inputiwant');
+      inputR.value = (inputL.value * data.rates[to]).toFixed(4);
+
     })
     .catch(err => {
       console.log('errorrrrr')
@@ -221,8 +230,12 @@ async function getFetch(){
 
 }
 
-
-
+function clearInputValue() {
+  let inputL = document.querySelector('.inputihave');
+  let inputR = document.querySelector('.inputiwant');
+  
+}
+ 
 
 
 
